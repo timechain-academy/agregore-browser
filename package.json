@@ -197,7 +197,8 @@
     "sanitize-filename": "^1.6.3",
     "scoped-fs": "^1.4.1",
     "ssb-fetch": "^1.5.2",
+    "twine": "^2.0.0",
     "whatwg-mimetype": "https://github.com/jsdom/whatwg-mimetype#v2.3.0",
-    "wrtc": "^0.4.7"
+    "wrtc": "^0.4"
   }
 }

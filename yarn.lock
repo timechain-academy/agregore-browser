@@ -7445,6 +7445,11 @@ tweetnacl@^1.0.1:
   resolved "https://registry.yarnpkg.com/tweetnacl/-/tweetnacl-1.0.3.tgz#ac0af71680458d8a6378d0d0d050ab1407d35596"
   integrity sha512-6rt+RN7aOi1nGMyC4Xa5DdYiukl2UWCbcJft7YhxReBGQD7OAM8Pbxw6YMo4r2diNEA8FEmu32YOn9rhaiE5yw==
 
+twine@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/twine/-/twine-2.0.0.tgz#0c295a4e6214eba32a3532de1b8997d4f5eb1bee"
+  integrity sha512-e1K3SzxM/5GKvwY6oqZZ8/QWo6TvtvE3H66yUyjRiVjALdhNcN3iU4AXKB3X6iCQQX2x4H8m44znIzpv+k+wrg==
+
 type-check@~0.3.2:
   version "0.3.2"
   resolved "https://registry.yarnpkg.com/type-check/-/type-check-0.3.2.tgz#5884cab512cf1d355e3fb784f30804b2b520db72"
@@ -7890,7 +7895,7 @@ write@1.0.3:
   dependencies:
     mkdirp "^0.5.1"
 
-wrtc@^0.4.7:
+wrtc@^0.4:
   version "0.4.7"
   resolved "https://registry.yarnpkg.com/wrtc/-/wrtc-0.4.7.tgz#c61530cd662713e50bffe64b7a78673ce070426c"
   integrity sha512-P6Hn7VT4lfSH49HxLHcHhDq+aFf/jd9dPY7lDHeFhZ22N3858EKuwm2jmnlPzpsRGEPaoF6XwkcxY5SYnt4f/g==
