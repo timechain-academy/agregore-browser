@@ -1,4 +1,4 @@
-const DEFAULT_PAGE = 'agregore://welcome'
+const DEFAULT_PAGE = 'agregore://timechain.academy'
 
 const webview = $('#view')
 // Kyran: Using variable name "top" causes issues for some reason? I would assume it's because of another one of the UI scripts but it doesn't seem like that's the case.
