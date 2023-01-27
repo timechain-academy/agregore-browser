@@ -135,3 +135,7 @@ app/extensions/archiveweb.page/
 
 # We use yarn lockfiles instead of package-lock
 package-lock.json
+
+#macos junk
+.DS_Store
+app/.DS_Store
