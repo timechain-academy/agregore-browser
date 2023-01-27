@@ -50,7 +50,7 @@ PYTHON_VERSION_MINOR                   := ${python_version_minor}
 
 NODE_VERSION							:=v16.19.0
 export NODE_VERSION
-NODE_ALIAS								:=v16.19.0
+# NODE_ALIAS								:=v16.0.0
 export NODE_ALIAS
 PACKAGE_MANAGER							:=yarn
 export PACKAGE_MANAGER
