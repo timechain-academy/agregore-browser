@@ -121,8 +121,10 @@ init: clean ## init clean
 	@pushd scripts && $(PACKAGE_MANAGER) && popd
 
 .PHONY:install
-install:init## - ./scripts && $(PACKAGE_MANAGER) $(PACKAGE_INSTALL)
-	$(MAKE) init && pushd scripts && $(PACKAGE_MANAGER) $(PACKAGE_INSTALL) && popd
+install:## - ./scripts && $(PACKAGE_MANAGER) $(PACKAGE_INSTALL)
+	#$(MAKE) init && pushd scripts && $(PACKAGE_MANAGER) $(PACKAGE_INSTALL) && popd
+	$(PACKAGE_MANAGER)
+	# $(PACKAGE_MANAGER) $(PACKAGE_INSTALL)
 .PHONY:build
 build:## build
 	@pushd ./scripts && $(PACKAGE_MANAGER) run build && popd
@@ -167,8 +169,12 @@ report:## report					environment args
 	@echo ' CURRENT_PATH=${CURRENT_PATH}	'
 	@echo ' THIS_DIR=${THIS_DIR}	'
 	@echo ' PROJECT_NAME=${PROJECT_NAME}	'
+	@echo ''
 	@echo ' NODE_VERSION=${NODE_VERSION}	'
 	@echo ' NODE_ALIAS=${NODE_ALIAS}	'
+	@echo ' PACKAGE_MANAGER=${PACKAGE_MANAGER}'
+	@echo ' PACKAGE_INSTALL=${PACKAGE_INSTALL}'
+	@echo ''
 	@echo ' PYTHON=${PYTHON}'
 	@echo ' PYTHON2=${PYTHON2}'
 	@echo ' PYTHON3=${PYTHON3}'
