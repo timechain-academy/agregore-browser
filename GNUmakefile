@@ -121,9 +121,9 @@ init: clean ## init clean
 	@pushd scripts && $(PACKAGE_MANAGER) && popd
 
 .PHONY:install
-install:## - ./scripts && $(PACKAGE_MANAGER) $(PACKAGE_INSTALL)
+install:## $(PACKAGE_MANAGER) install
 	#$(MAKE) init && pushd scripts && $(PACKAGE_MANAGER) $(PACKAGE_INSTALL) && popd
-	$(PACKAGE_MANAGER)
+	$(PACKAGE_MANAGER) && $(PACKAGE_MANAGER) install
 	# $(PACKAGE_MANAGER) $(PACKAGE_INSTALL)
 .PHONY:build
 build:## build
