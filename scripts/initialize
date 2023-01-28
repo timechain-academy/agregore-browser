@@ -251,8 +251,8 @@ yarn add -G node-pre-gyp node-gyp wrtc@0.4.7 \
 	better-sqlite3@8.0.1 bufferutil@4.0.6 \
 	ed25519-supercop@2.0.1 fd-lock@1.2.0 \
 	fsctl@1.0.0 sodium-native@3.4.1 \
-	utf-8-validate@5.0.9 utp-native@2.5.3 \
-	better-sqlite3@7.6.2
+	utf-8-validate@5.0.9 utp-native@2.5.3 # \
+	# better-sqlite3@7.6.2
 pushd ../app && yarn # app_install && popd
 
 }
