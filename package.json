@@ -4,14 +4,14 @@
   "description": "A minimal web browser for the distributed web",
   "main": "app/main.js",
   "scripts": {
-    "test": "npm run lint",
+    "test": "yarn run lint",
     "start": "electron .",
     "debug": "env NODE_ENV=debug electron --trace-uncaught .",
     "builder": "electron-builder build --publish never",
     "builder-all": "electron-builder build -mwl",
     "lint": "standard --fix",
-    "preversion": "npm run test",
-    "postinstall": "npm run download-extensions && electron-builder install-app-deps",
+    "preversion": "yarn run test",
+    "postinstall": "yarn run download-extensions && electron-builder install-app-deps",
     "download-extensions": "node ./download-extensions.js"
   },
   "standard": {
@@ -172,7 +172,7 @@
   },
   "homepage": "https://github.com/AgregoreWeb/agregore-browser#readme",
   "devDependencies": {
-    "@netless/extension-flat": "^1.0.1",
+    "@netless/extension-flat": "https://github.com/netless-io/extension-flat.git",
     "electron": "20",
     "electron-builder": "^22.9.1",
     "standard": "^14.3.4"
@@ -186,6 +186,7 @@
     "fs-extra": "^9.0.1",
     "gemini-fetch": "^1.0.0",
     "gemini-to-html": "^1.0.0",
+    "git": "^0.1.5",
     "go-ipfs": "^0.15.0",
     "hyper-sdk": "^3.0.7",
     "hypercore-fetch": "^8.6.1",
@@ -197,7 +198,9 @@
     "sanitize-filename": "^1.6.3",
     "scoped-fs": "^1.4.1",
     "ssb-fetch": "^1.5.2",
+    "utp-native": "2.5.3",
     "whatwg-mimetype": "https://github.com/jsdom/whatwg-mimetype#v2.3.0",
-    "wrtc": "^0.4.7"
+    "wrtc": "^0.4.7",
+    "ws": "^8.12.0"
   }
 }
