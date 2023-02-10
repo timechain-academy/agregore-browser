@@ -1,5 +1,33 @@
 #!/usr/bin/env node
 
+const { exec } = require('child_process')
+
+
+exec('pushd node_modules/hyper-dns && yarn add --optional better-sqlite3@8.0.1 && popd', (error, stdout, stderr) => {
+
+	if (error) {
+    console.log(`error: ${error.message}`)
+    return
+  }
+  if
+	(stderr) {
+    console.log(`stderr: ${stderr}`)
+    return
+  }
+  console.log(`stdout: ${stdout}`)
+})
+// exec('pushd node_modules/hyper-dns && npm install --optional better-sqlite3@8.0.1 && popd', (error, stdout, stderr) => {
+//     if (error) {
+//         console.log(`error: ${error.message}`);
+//         return;
+//     }
+//     if (stderr) {
+//         console.log(`stderr: ${stderr}`);
+//         return;
+//     }
+//     console.log(`stdout: ${stdout}`);
+// });
+
 const { extensionFlat } = require('@netless/extension-flat')
 
 const EXTENSIONS = {
