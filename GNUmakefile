@@ -118,8 +118,7 @@ init:venv## wrapped in python3 venv
 	test -d .venv || $(PYTHON3) -m virtualenv .venv
 	( \
 	   source .venv/bin/activate; pip install -r requirements.txt; \
-	   pushd scripts && ./initialize && \
-	   $(PACKAGE_MANAGER) && popd \
+	   $(PACKAGE_MANAGER) \
 	);
 
 .PHONY:install
@@ -127,15 +126,19 @@ install:## $(PACKAGE_MANAGER) install
 	test -d .venv || $(PYTHON3) -m virtualenv .venv
 	( \
 	   source .venv/bin/activate; pip install -r requirements.txt; \
-	   pushd scripts && ./initialize && \
-	   $(PACKAGE_MANAGER) && $(PACKAGE_MANAGER) install && popd \
+	   source ~/.bashrc && $(PACKAGE_MANAGER) install \
 	);
-.PHONY:build
-build:## build
+builder:## yarn run builder
 	test -d .venv || $(PYTHON3) -m virtualenv .venv
 	( \
 	   source .venv/bin/activate; pip install -r requirements.txt; \
-	   pushd ./scripts && $(PACKAGE_MANAGER) run build && popd; \
+	   source ~/.bashrc && $(PACKAGE_MANAGER) run builder \
+	);
+builder-all:## yarn run builder-all
+	test -d .venv || $(PYTHON3) -m virtualenv .venv
+	( \
+	   source .venv/bin/activate; pip install -r requirements.txt; \
+	   $(PACKAGE_MANAGER) run builder-all \
 	);
 .PHONY:start
 start:## start
@@ -225,10 +228,12 @@ nvm: executable ## nvm
 	@curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash || git pull -C $(HOME)/.nvm && export NVM_DIR="$(HOME)/.nvm" && [ -s "$(NVM_DIR)/nvm.sh" ] && \. "$(NVM_DIR)/nvm.sh" && [ -s "$(NVM_DIR)/bash_completion" ] && \. "$(NVM_DIR)/bash_completion"  && nvm install $(NODE_VERSION) && nvm use $(NODE_VERSION)
 	@source ~/.bashrc && nvm alias $(NODE_ALIAS) $(NODE_VERSION)
 
-.PHONY: all
-all:- executable install init build ## all - executable install init build
-	@echo "make release"
-	@echo "make start"
+all:## all - executable install init build
+	source ~/.bashrc && make venv && \
+	. .venv/bin/activate && \
+	source ~/.bashrc && \
+	make init install build && \
+	make start
 
 .PHONY: submodule submodules
 submodule: submodules ## submodule
