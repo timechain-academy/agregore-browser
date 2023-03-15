@@ -48,9 +48,9 @@ PYTHON_VERSION                         := ${python_version_major}.${python_versi
 PYTHON_VERSION_MAJOR                   := ${python_version_major}
 PYTHON_VERSION_MINOR                   := ${python_version_minor}
 
-NODE_VERSION							:=v16.17.1
+NODE_VERSION							:=v16.17.0
 export NODE_VERSION
- NODE_ALIAS								:=v16.17.0
+ NODE_ALIAS								:=v16.16.0
 export NODE_ALIAS
 PACKAGE_MANAGER							:=yarn
 export PACKAGE_MANAGER
