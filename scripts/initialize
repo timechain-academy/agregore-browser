@@ -253,7 +253,7 @@ yarn add -G node-pre-gyp node-gyp wrtc@0.4.7 \
 	fsctl@1.0.0 sodium-native@3.4.1 \
 	utf-8-validate@5.0.9 utp-native@2.5.3 # \
 	# better-sqlite3@7.6.2
-pushd ../app && yarn # app_install && popd
+#pushd ../app && yarn # app_install && popd
 
 }
 source ~/.bashrc
