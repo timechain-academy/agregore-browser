@@ -48,9 +48,9 @@ PYTHON_VERSION                         := ${python_version_major}.${python_versi
 PYTHON_VERSION_MAJOR                   := ${python_version_major}
 PYTHON_VERSION_MINOR                   := ${python_version_minor}
 
-NODE_VERSION							:=v16.19.0
+NODE_VERSION							:=v16.15.1
 export NODE_VERSION
-# NODE_ALIAS								:=v16.0.0
+ NODE_ALIAS								:=v16.15.0
 export NODE_ALIAS
 PACKAGE_MANAGER							:=yarn
 export PACKAGE_MANAGER
@@ -114,20 +114,29 @@ export GIT_REPO_PATH
 	#NOTE: 2 hashes are detected as 1st column output with color
 	@awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z_-]+:.*?##/ {printf "\033[36m%-15s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST)
 
-init: clean ## init clean
-#	@["$(shell $(SHELL))" == "/bin/zsh"] && zsh --emulate sh
-
-	@pushd scripts && ./initialize && popd
-	@pushd scripts && $(PACKAGE_MANAGER) && popd
+init:venv## wrapped in python3 venv
+	test -d .venv || $(PYTHON3) -m virtualenv .venv
+	( \
+	   source .venv/bin/activate; pip install -r requirements.txt; \
+	   pushd scripts && ./initialize && \
+	   $(PACKAGE_MANAGER) && popd \
+	);
 
 .PHONY:install
 install:## $(PACKAGE_MANAGER) install
-	#$(MAKE) init && pushd scripts && $(PACKAGE_MANAGER) $(PACKAGE_INSTALL) && popd
-	$(PACKAGE_MANAGER) && $(PACKAGE_MANAGER) install
-	# $(PACKAGE_MANAGER) $(PACKAGE_INSTALL)
+	test -d .venv || $(PYTHON3) -m virtualenv .venv
+	( \
+	   source .venv/bin/activate; pip install -r requirements.txt; \
+	   pushd scripts && ./initialize && \
+	   $(PACKAGE_MANAGER) && $(PACKAGE_MANAGER) install && popd \
+	);
 .PHONY:build
 build:## build
-	@pushd ./scripts && $(PACKAGE_MANAGER) run build && popd
+	test -d .venv || $(PYTHON3) -m virtualenv .venv
+	( \
+	   source .venv/bin/activate; pip install -r requirements.txt; \
+	   pushd ./scripts && $(PACKAGE_MANAGER) run build && popd; \
+	);
 .PHONY:start
 start:## start
 	@pushd ./scripts && $(PACKAGE_MANAGER) run start && popd
