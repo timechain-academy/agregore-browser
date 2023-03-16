@@ -128,6 +128,9 @@ install:## $(PACKAGE_MANAGER) install
 .PHONY:builder
 builder:venv## yarn run builder
 	@$(PACKAGE_MANAGER) run builder
+.PHONY:builder-all
+builder-all:venv## yarn run builder-all
+	@$(PACKAGE_MANAGER) run builder-all
 .PHONY:start
 start:## yarn run start
 	@pushd ./scripts && $(PACKAGE_MANAGER) run start && popd
