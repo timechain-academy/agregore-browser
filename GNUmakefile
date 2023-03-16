@@ -125,19 +125,12 @@ install:## $(PACKAGE_MANAGER) install
 	#$(MAKE) init && pushd scripts && $(PACKAGE_MANAGER) $(PACKAGE_INSTALL) && popd
 	$(PACKAGE_MANAGER) && $(PACKAGE_MANAGER) install
 	# $(PACKAGE_MANAGER) $(PACKAGE_INSTALL)
-.PHONY:build
-build:## build
-	@pushd ./scripts && $(PACKAGE_MANAGER) run build && popd
+.PHONY:builder
+builder:venv## yarn run builder
+	@$(PACKAGE_MANAGER) run builder
 .PHONY:start
-start:## start
+start:## yarn run start
 	@pushd ./scripts && $(PACKAGE_MANAGER) run start && popd
-rebuild:## rebuild
-	@rm -rf $(find . -name package-lock.json)
-	@rm -rf $(find . -name yarn.lock)
-	@rm -rf $(find . -name node_modules)
-	@rm -rf ./scripts/node_modules/electron
-	@cd ./scripts && $(PACKAGE_MANAGER) $(PACKAGE_INSTALL) electron@10
-	@cd ./scripts && $(PACKAGE_MANAGER) $(PACKAGE_INSTALL) rebuild
 burnthemall:## burnthemall - hard reset & build
 	@cd ./scripts && $(PACKAGE_MANAGER) $(PACKAGE_INSTALL) burnthemall
 release:## release - build distribution
