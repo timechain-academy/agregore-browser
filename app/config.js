@@ -8,7 +8,7 @@ const DEFAULT_HYPER_DIR = path.join(USER_DATA, 'hyper')
 // const DEFAULT_SSB_DIR = path.join(USER_DATA, 'ssb')
 const DEFAULT_BT_DIR = path.join(USER_DATA, 'bt')
 
-const DEFAULT_PAGE = 'agregore://timechain.academy'
+const DEFAULT_PAGE = 'https://timechain.academy'
 
 module.exports = require('rc')('agregore', {
   accelerators: {
