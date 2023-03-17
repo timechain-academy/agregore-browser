@@ -116,7 +116,7 @@ ${themes}
 
       const headers = {
         'Access-Control-Allow-Origin': '*',
-        'Allow-CSP-From': 'agregore://timechain.academy',
+        'Allow-CSP-From': 'agregore://welcome',
         'Cache-Control': 'no-cache',
         'Content-Type': contentType
       }
