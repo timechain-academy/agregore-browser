@@ -21,11 +21,12 @@ export const dependencies = {
   "mime": "^2.4.6",
   "multiformats": "^9.9.0",
   "node-pre-gyp": "0.17.0",
+  "p-queue": "^7.3.4",
   "rc": "^1.2.8",
   "sanitize-filename": "^1.6.3",
   "scoped-fs": "^1.4.1",
   "semver": "^7.5.0",
   "ssb-fetch": "^1.5.2",
   "whatwg-mimetype": "https://github.com/jsdom/whatwg-mimetype#v2.3.0",
-  "wrtc": "0.4.7"
+  "wrtc": "^0.4.7"
 }
