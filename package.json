@@ -1,7 +1,7 @@
 {
-  "name": "agregore-browser",
+  "name": "gnostr-browser",
   "version": "2.2.3",
-  "description": "A minimal web browser for the distributed web",
+  "description": "gnostr.org: a git+nostr utility",
   "main": "app/main.cjs",
   "type": "module",
   "scripts": {
@@ -37,8 +37,8 @@
       "build/icon-small.png",
       "package.json"
     ],
-    "productName": "Agregore Browser",
-    "appId": "agregore.mauve.moe",
+    "productName": "gnostr.org",
+    "appId": "org.gnostr.org",
     "files": [
       "build/*",
       "app/**/*",
