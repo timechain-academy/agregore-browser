@@ -2,14 +2,14 @@
 
 :root {
   --top-height: 2.5em;
-  --border-width: 1px;
+  --border-width: 0.125em;
 }
 
 html, body {
   width: 100%;
   height: 100%;
-  padding: 0px 0px 0px 0px;
-  margin: 0px 0px 0px 0px;
+  padding: 0;
+  margin: 0;
   display: flex;
   flex: 1;
   flex-direction: column;
@@ -18,15 +18,7 @@ html, body {
 }
 
 #view {
-  width: 100%;
-  height: 100%;
-  padding: 0px 0px 0px 0px;
-  margin: 22px 0px 0px 0px;
-  display: flex;
-  flex: 1;
-  flex-direction: row;
-  background: var(--ag-color-white);
-  font-family: var(--ag-theme-font-family);
+  flex:1
 }
 
 #toptop {
@@ -50,10 +42,9 @@ omni-box {
 .omni-box-header {
   display: flex;
   flex-direction: row;
-  border-bottom: var(--border-width) solid var(--ag-theme-primary);
+  #border-bottom: var(--border-width) solid var(--ag-theme-primary);
   background: var(--ag-theme-background);
   color: var(--ag-theme-text);
-  height: calc(100% - var(--border-width));
 }
 
 .omni-box-form, .find-menu-form {
@@ -63,7 +54,7 @@ omni-box {
   border: none;
 }
 
-.omni-box-input, .find-menu-input, .omni-box-target-input {
+.omni-box-input, .find-menu-input {
   flex: 1;
   border:none;
   background: none;
@@ -78,7 +69,7 @@ omni-box {
   flex-direction: column;
   margin: 0px;
   padding: 0px;
-  border: var(--border-width) solid var(--ag-theme-primary);
+  #border: var(--border-width) solid var(--ag-theme-primary);
   background: var(--ag-theme-background);
   color: var(--ag-theme-text);
 }
@@ -101,7 +92,7 @@ omni-box {
 }
 
 .omni-box-nav-item {
-  border: 1px solid var(--ag-theme-primary);
+  #border: 1px solid var(--ag-theme-primary);
   display: flex;
   flex-direction: row;
   overflow: hidden;
@@ -110,7 +101,7 @@ omni-box {
 }
 
 find-menu {
-  border: var(--border-width) solid var(--ag-theme-primary);
+  #border: var(--border-width) solid var(--ag-theme-primary);
   border-top: none;
   display: flex;
   flex-direction: row;
@@ -119,9 +110,9 @@ find-menu {
 }
 
 browser-actions {
-  height: calc(var(--top-height) - calc(var(--border-width) * 3));
-  border-bottom: var(--border-width) solid var(--ag-theme-primary);
-  border-left: var(--border-width) solid var(--ag-theme-primary);
+  #height: calc(var(--top-height) - calc(var(--border-width) * 3));
+  #border-bottom: var(--border-width) solid var(--ag-theme-primary);
+  #border-left: var(--border-width) solid var(--ag-theme-primary);
   display: flex;
   flex-direction: row;
   background: var(--ag-theme-background);
@@ -134,21 +125,9 @@ browser-actions {
   padding: 0 calc(var(--border-width) * 2);
   height: calc(100% - calc(var(--border-width) * 2));
   width: auto;
-  position: relative;
 } .browser-actions-button>img {
   height: 100%;
   width: auto;
-}
-.browser-actions-badge {
-  border-radius: 0.25em;
-  position: absolute;
-  bottom: 0px;
-  min-width: 1em;
-  min-height: 1em;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--ag-theme-background);
-  color: var(--ag-theme-text);
 }
 
 browser-actions:empty {
