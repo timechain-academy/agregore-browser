@@ -210,7 +210,7 @@ export function createActions ({
       const title = webContents.getTitle()
       const shortcutName = sanitize(title, { replacement: ' ' })
       const url = webContents.getURL()
-      const description = `Agregore Browser - ${url}`
+      const description = `${url}`
 
       const shortcut = {
         filePath,

@@ -69,7 +69,7 @@ currentWindow.on('navigating', (url) => {
 currentWindow.on('history-buttons-change', updateButtons)
 
 currentWindow.on('page-title-updated', (title) => {
-  pageTitle.innerText = title + ' - Agregore Browser'
+  pageTitle.innerText = '' + title + ''
 })
 currentWindow.on('enter-html-full-screen', () => {
   if (!rawFrame) nav.classList.toggle('hidden', true)
