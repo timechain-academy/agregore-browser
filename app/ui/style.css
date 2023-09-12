@@ -76,7 +76,7 @@ omni-box {
   display: flex;
   flex-direction: column;
   margin: 0px;
-  padding: 30px;
+  padding: 0px;
   border: var(--border-width) solid var(--ag-theme-primary);
   background: var(--ag-theme-background);
   color: var(--ag-theme-text);
