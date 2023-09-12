@@ -1,92 +1,33 @@
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+
 name: gnostr-org-matrix
 
-# Controls when the action will run.
 on:
-  pull_request:
-    branches:
-      - '*'
-      - '*/*'
-      - '**'
-      - 'master'
-      - 'main'
   push:
-    branches:
-      - '*'
-      - '*/*'
-      - '**'
-      - 'master'
-      - 'main'
+    branches: [ "**" ]
+  pull_request:
+    branches: [ "**" ]
 
-  workflow_dispatch:
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   build:
-    env:
-      GNOSTR: "gnostr"
-      GH_TOKEN: ${{ github.token }}
+
+    runs-on: [ubuntu-latest, macos-latest]
+
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest]
-    runs-on: ${{ matrix.os }}
+        node-version: [16.x, 18.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
     steps:
-      - name: echo test
-        #if: ${{ !env.ACT }}
-        run: |
-          echo GNOSTR=${{ env.GNOSTR }}
-          echo GNOSTR1=${{ env.GNOSTR1 }}
-        env:
-          GNOSTR1: "GNOSTR1"
-      - uses: styfle/cancel-workflow-action@0.11.0
-        if: ${{ !env.ACT }}
-        with:
-          access_token: ${{ github.token }}
-      - name: Restore deps
-        id: cache-deps-restore
-        uses: actions/cache/restore@v3
-        if: ${{ !env.ACT }}
-        with:
-          path: |
-            ~/.cargo
-            ~/.rustup
-          key: ${{ runner.os }}-deps
-
-      - uses: actions/checkout@v3
-        with:
-          submodules: 'true'
-          set-safe-directory: 'true'
-
-      - uses: actions-rs/toolchain@v1.0.6
-        #if: ${{ !env.ACT }}
-        with:
-          toolchain: nightly
-          default: true
-          override: true
-
-      - name: echo GNOSTR
-        #if: ${{ !env.ACT }}
-        run: |
-          echo $GNOSTR
-
-      - name:  apt-get update || brew install virtualenv
-        run: |
-          sudo apt-get update || brew install virtualenv
-          touch ~/GITHUB_TOKEN.txt
-
-      - run: python3 -m pip install virtualenv
-
-      - run: V=1 ./gnostr-org
-
-      - name: Save deps
-        id: cache-deps-save
-        uses: actions/cache/save@v3
-        if: ${{ !env.ACT }}
-        with:
-          path: |
-            public/gnostr
-            CMakeFiles/*.dir
-            ~/.cargo
-            ~/.rustup
-            CARGO_TARGET_DIR
-          key: ${{ steps.cache-deps-restore.outputs.cache-primary-key }}
-
+    - uses: actions/checkout@v3
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        #cache: 'npm'
+    - run: touch ~/GITHUB_TOKEN.txt
+    - run: git config --global --add safe.director `pwd`
+    - run: type -P apt-get && apt-get install bash make || echo ##
+    - run: type -P brew && brew install make || echo ##
+    - run: make run
