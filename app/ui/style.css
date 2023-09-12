@@ -13,7 +13,7 @@ html, body {
   display: flex;
   flex: 1;
   flex-direction: column;
-  background: var(--ag-color-white);
+  background: var(--ag-color-black);
   font-family: var(--ag-theme-font-family);
 }
 
