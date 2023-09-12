@@ -1,5 +1,6 @@
 .ONESHELL:-
 -:
-	. ~/.nvm/nvm.sh && nvm use && nvm exec pnpm install -D @pnpm/exe && nvm exec pnpm add -D electron@23.0.0-beta.2 && nvm exec pnpm install node-pre-gyp && nvm exec pnpm install go-ipfs@0.15.0 && nvm exec pnpm install wrtc
+	@mv node_modules/.pnpm/go-ipfs@0.17.0/node_modules/go-ipfs/go-ipfs node_modules/.pnpm/go-ipfs@0.17.0/node_modules/go-ipfs/bin || echo "if fail rename mv node_modules/.pnpm/go-ipfs@0.17.0/node_modules/go-ipfs/go-ipfs to bin"
+	. ~/.nvm/nvm.sh && nvm exec npm install -g --force @pnpm/exe && nvm exec npm install -g node-pre-gyp && nvm exec npm install wrtc &&  nvm exec pnpm install
 builder:
-	. ~/.nvm/nvm.sh && nvm exec npm run builder
+	. ~/.nvm/nvm.sh && nvm exec pnpm run builder
