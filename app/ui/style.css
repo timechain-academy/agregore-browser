@@ -32,6 +32,7 @@ html, body {
 #toptop {
   display: flex;
   flex-direction: row;
+  height: var(--top-height);
 }
 
 #search {
