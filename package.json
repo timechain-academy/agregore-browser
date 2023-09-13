@@ -1,5 +1,5 @@
 {
-  "name": "gnostr-browser",
+  "name": "gnostr-org",
   "version": "2.2.3",
   "description": "gnostr.org: a git+nostr utility",
   "main": "app/main.cjs",
@@ -164,7 +164,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AgregoreWeb/agregore-browser.git"
+    "url": "git+https://github.com/gnostr-org/gnostr-org.git"
   },
   "keywords": [
     "dat",

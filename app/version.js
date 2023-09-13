@@ -1,5 +1,5 @@
 
-export const name = 'gnostr-browser'
+export const name = 'gnostr-org'
 export const version = '2.2.3'
 export const dependencies = {
   "abort-controller": "^3.0.0",

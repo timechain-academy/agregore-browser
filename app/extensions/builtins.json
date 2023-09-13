@@ -19,5 +19,10 @@
     "version": "1.47.4",
     "url": "https://github.com/gorhill/uBlock/releases/download/{version}/uBlock0_{version}.chromium.zip",
     "stripPrefix": "uBlock0.chromium/"
+  },
+  "agregore-nodegit": {
+    "version": "0.0.0",
+    "url": "https://github.com/gnostr-org/agregore-nodegit/archive/refs/tags/v{version}.zip",
+    "stripPrefix":"agregore-nodegit-0.0.0/"
   }
 }
