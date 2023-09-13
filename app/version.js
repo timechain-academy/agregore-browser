@@ -8,7 +8,7 @@ export const dependencies = {
   "data-uri-to-buffer": "^3.0.1",
   "decompress": "^4.2.1",
   "electron-extended-webextensions": "0.0.10",
-  "fetch": "1.1.0",
+  "fetch": "^1.1.0",
   "fs-extra": "^9.0.1",
   "gemini-fetch": "^2.0.0",
   "gemini-to-html": "^1.0.0",
