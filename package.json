@@ -1,7 +1,7 @@
 {
-  "name": "agregore-browser",
-  "version": "2.3.0",
-  "description": "A minimal web browser for the distributed web",
+  "name": "gnostr-browser",
+  "version": "2.2.3",
+  "description": "gnostr.org: a git+nostr utility",
   "main": "app/main.cjs",
   "type": "module",
   "scripts": {
@@ -37,8 +37,8 @@
       "build/icon-small.png",
       "package.json"
     ],
-    "productName": "Agregore Browser",
-    "appId": "agregore.mauve.moe",
+    "productName": "gnostr.org",
+    "appId": "org.gnostr.org",
     "files": [
       "build/*",
       "app/**/*",
@@ -195,6 +195,7 @@
     "decompress": "^4.2.1",
     "delay": "^6.0.0",
     "electron-extended-webextensions": "0.0.10",
+    "fetch": "^1.1.0",
     "fs-extra": "^9.0.1",
     "gemini-fetch": "^2.0.0",
     "gemini-to-html": "^1.0.0",
@@ -206,6 +207,7 @@
     "js-ipfs-fetch": "^5.0.0",
     "mime": "^2.4.6",
     "multiformats": "^9.9.0",
+    "node-pre-gyp": "0.17.0",
     "p-queue": "^7.3.4",
     "rc": "^1.2.8",
     "sanitize-filename": "^1.6.3",
