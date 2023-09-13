@@ -7,6 +7,7 @@ export const dependencies = {
   "create-desktop-shortcuts": "^1.7.0",
   "data-uri-to-buffer": "^3.0.1",
   "decompress": "^4.2.1",
+  "delay": "6.0.0",
   "electron-extended-webextensions": "0.0.10",
   "fetch": "^1.1.0",
   "fs-extra": "^9.0.1",
