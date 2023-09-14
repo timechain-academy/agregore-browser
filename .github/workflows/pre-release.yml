@@ -101,7 +101,7 @@ jobs:
           prerelease: true
           title: "Pre-Release Build"
           files: |
-            *
+            gnostr-org
 
       - name: Save deps
         id: cache-deps-save
